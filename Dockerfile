@@ -13,6 +13,8 @@ RUN npm run build
 
 # new FROM terminates last block and starts new Run phase block which has our new base image nginx         
 FROM nginx 
+# give indication for AWS elasticbeanstalk to expose a port
+EXPOSE 80
 # copy something over from builder phase to new html folder
 COPY --from=builder  /app/build /usr/share/nginx/html  
 
